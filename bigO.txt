@@ -1,0 +1,4 @@
+Runtime for an algorithm can be described in three ways:
+- Best Case
+- Worst Case
+- Expected Case
