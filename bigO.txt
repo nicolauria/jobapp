@@ -2,3 +2,10 @@ Runtime for an algorithm can be described in three ways:
 - Best Case
 - Worst Case
 - Expected Case
+
+log n - logarithmic time
+n - linear time
+n log n - linearithmic time
+n^2 - quadratic time
+2^n - exponential time
+n! - factorial time
