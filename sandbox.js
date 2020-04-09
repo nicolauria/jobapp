@@ -1,32 +1,12 @@
-function mergeSort(unsortedArray) {
-  // No need to sort the array if the array only has one element or empty
-  if (unsortedArray.length <= 1) {
-    return unsortedArray;
+function getIndex(arr, number) {
+  let sorted = arr.sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length; i++) {
+    if (i === 0 && number < sorted[i]) return 0;
+    if (number > sorted[i] && number < sorted[i + 1]) return i + 1;
+    if (i === sorted.length - 1) return i;
   }
-  // In order to divide the array in half, we need to figure out the middle
-  const middle = Math.floor(unsortedArray.length / 2);
-
-  // This is where we will be dividing the array into left and right
-  const left = unsortedArray.slice(0, middle);
-  const right = unsortedArray.slice(middle);
-
-  // Using recursion to combine the left and right
-  return merge(mergeSort(left), mergeSort(right));
+  return -1;
 }
 
-// Merge the two arrays: left and right
-function merge(left, right) {
-  let resultArray = [];
-
-  while (left.length > 0 && right.length > 0) {
-    if (left[0] > right[0]) {
-      resultArray.push(right.shift());
-    } else {
-      resultArray.push(left.shift());
-    }
-  }
-
-  return resultArray.concat(left).concat(right);
-}
-
-console.log(mergeSort([10, -1, 2, 5, 0, 6, 4, -5]));
+console.log(getIndex([10, 5, 1, 3], 2) === 1);
+[1, 3, 5, 10];
