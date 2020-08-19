@@ -1,0 +1,59 @@
+Provide an example of RESTful routing and controller
+
+Prefix Verb   URI Pattern                  Controller#Action
+    articles GET    /articles(.:format)          articles#index
+             POST   /articles(.:format)          articles#create
+ new_article GET    /articles/new(.:format)      articles#new
+edit_article GET    /articles/:id/edit(.:format) articles#edit
+     article GET    /articles/:id(.:format)      articles#show
+             PATCH  /articles/:id(.:format)      articles#update
+             PUT    /articles/:id(.:format)      articles#update
+             DELETE /articles/:id(.:format)      articles#destroy
+
+Describe CRUD verbs and actions.
+
+How should you test routes?
+
+How should you use filters in controllers?
+
+https://guides.rubyonrails.org/action_controller_overview.html#filters
+
+What are Strong Parameters?
+
+Strong Parameters is a feature of Rails that prevents assigning request parameters to objects unless they have been explicitly permitted
+
+def user_params
+  params.require(:user).permit(:first_name, :last_name, :email)
+end
+
+What do we need to test in controllers?
+
+https://medium.com/ruby-on-rails/testing-rails-controllers-d3fc59a91a78
+
+How should you use content_for and yield?
+
+https://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method
+
+How should you use nested layouts?
+
+https://railsguides.net/rails-nested-layouts/
+
+By default, application.html.erb is your layout. You can render a default sub-layout by calling it as a partial from your application layout:
+
+# app/views/layouts/application.html.erb
+<div id="one" >
+    <%= render "layouts/asdf" %>
+</div>
+
+# app/views/layouts/_asdf.html.erb
+<div id="two">
+    <%= yield %>
+</div>
+
+This will output the following:
+
+<div id="one>
+   <div id="two">
+      <%= yield %>
+   </div>
+</div>

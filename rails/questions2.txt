@@ -1,0 +1,18 @@
+What is Rack?
+
+Rack is a layer between the framework (Rails) & the application server (Puma). We use Rack because that allows different frameworks & servers to be interchangeable. They become components that you can plug-in.
+
+Rack sits in the middle of every web request & response.
+
+Rack is essentially small Ruby programs that get called as part of the request-response cycle & get a chance to do something with it.
+
+What kind of things is this used for?
+
+Logging
+Sessions
+Profiling (find out how long a request takes to complete)
+Caching
+Security (deny requests based on IP address, or limit # of request)
+Serving static files (css, js, png…)
+
+see simple_rack_app.rb for an example rack app

@@ -1,0 +1,19 @@
+What is ActiveJob? When should we use it?
+
+Active Job is a framework for declaring jobs and making them run on a variety of queuing backends. These jobs can be everything from regularly scheduled clean-ups, to billing charges, to mailings. Anything that can be chopped up into small units of work and run in parallel, really.
+
+https://guides.rubyonrails.org/active_job_basics.html
+
+What is Asset Pipeline?
+
+The asset pipeline provides a framework to concatenate and minify or compress JavaScript and CSS assets. It also adds the ability to write these assets in other languages and pre-processors such as CoffeeScript, Sass, and ERB. ... The asset pipeline is implemented by the sprockets-rails gem, and is enabled by default.
+
+https://launchschool.com/blog/rails-asset-pipeline-best-practices
+
+Explain the difference between Page, Action, Fragment, Low-Level, SQL caching types.
+
+https://guides.rubyonrails.org/caching_with_rails.html
+
+What is a Rails engine?
+
+https://guides.rubyonrails.org/engines.html

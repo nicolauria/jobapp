@@ -1,0 +1,59 @@
+What is a class?
+
+A class is a blueprint for creating objects. It defines both the state and behavior of instances that are created.
+
+What is the difference between a class and a module?
+
+Modules are collections of methods and constants. Classes may generate instances (objects), and have per-instance state (instance variables). Modules may be mixed in to classes and other modules.
+
+What is an object?
+
+Almost everything in Ruby is an object (Argument lists are part of the syntax of the language, they are not an object. keywords like if, class, alias, and begin, end, rescue are not objects). This makes it easier to store state and also to make methods readily available throughout scripts. Blocks, lambdas, classes are all objects. Even methods can be represented as an object.
+
+How would you declare and use a constructor in Ruby?
+
+def initialize(arg1, arg2, arg3)
+  @arg1 = arg1
+  @arg2 = arg2
+  @arg3 = arg3
+end
+
+How would you create getter and setter methods in Ruby?
+
+attr_accessor
+attr_reader
+attr_writer
+
+Describe the difference between class and instance variables?
+
+Class variables are the same across different instances. Instance variables are unique to each instance. Class and instance variables are private, so getters and setters are necessary to access the variables outside the class.
+
+What are the three levels of method access control for classes and what do they signify?
+
+Public, Protected and Private. Methods are by default public and can be accessed anywhere. Protected means the method can only be called by the class itself and any subclasses. Private means the method can only be called internally. I.E. in the body of other methods.
+
+What does ‘self’ mean?
+
+The keyword self in Ruby enables you to access the current object — the object that is receiving the current message.
+
+Explain how (almost) everything is an object in Ruby.
+
+What this means is all the rules that you can apply to one kind of Object can largely be extended to others. Inheritance means we can write less code to achieve an outcome. Argument lists are part of the syntax of the language, they are not an object. keywords like if, class, alias, and begin, end, rescue are not objects.
+
+Explain what singleton methods are. What is Eigenclass in Ruby?
+
+Singleton methods are methods that live in the singleton class and are only available for a single object (unlike regular instance methods that are available to all instances of the class).
+
+Describe Ruby method lookup path.
+
+The method lookup path is the path an object takes to invoke a method with the same name as the message that was sent to it. It’s true that to_a is not defined in Range. However take a look at the Included Modules in the documentation, and you will see Enumerable. In this case a Range object will first look in to its own class, then Enumerable, Object, Kernel, and finally ending at BasicObject.
+
+Describe available Ruby callbacks. How can we use them in practice?
+
+Callbacks allow us to pass methods to other methods as an argument. We can then invoke that method inside of the other method using .call.
+
+What is the difference between Proc and lambda?
+
+We can pass a block literally as the last argument to a method and use the yield keyword to call it inside of the method. Or we can define that block as a Proc. Procs give us a way of passing around blocks as objects. When passing a proc to a method, we precede the argument with & so that ruby knows that this is a proc and not a variable. 
+
+Procs don’t care about the correct number of arguments, while lambdas will raise an exception. Return and break behaves differently in procs and lambdas. With lambdas, return will only return from the lambda itself and not the enclosing method, which is what happens if you use return inside a block or Proc.

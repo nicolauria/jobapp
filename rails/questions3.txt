@@ -1,0 +1,29 @@
+What is RubyGems? How does it work?
+
+RubyGems is a package manager for the Ruby programming language that provides a standard format for distributing Ruby programs and libraries (in a self-contained format called a "gem"), a tool designed to easily manage the installation of gems, and a server for distributing them.
+
+First, I have CanCan in my Gemfile and I do a bundle install:
+
+# Gemfile
+gem "cancan", "~> 1.6.10"```
+
+$ bundle install
+
+With Bundler it's actually really easy to see where any particular gem lives. Just use bundle show:
+
+$ bundle show cancan
+/Users/jasonswett/.rvm/gems/ruby-2.0.0-p0/gems/cancan-1.6.10
+
+In its most basic form, a gem is nothing more than a zipped-up directory containing code and a <name>.gemspec file. This .gemspec file contains metadata about the gem such as its name, what files to load and its dependencies.
+
+The gem install or bundle command downloads the zip file from the source and extracts it to your hard drive. You can find out where a gem is located by running bundle info <gem name> or by directly opening the gem directory by running bundle open <gem name>.
+
+To load the gem into your application, Rubygems monkey-patches the require function in the Kernel class. It first tries to read the file from disk and if that doesn’t work, it then tries to resolve the file in each of the gems on your system. Once it finds the file in a gem it “activates” the gem by adding it to the load path.
+
+If you use Bundler, it adds each specific gem to the load path during the setup call. This saves Rubygems the hassle of trying to resolve the paths. It also prevents Ruby from loading a different version of the gem than is selected in the Gemfile(.lock).
+
+To build the gem we can use the gem build howdy.gemspec command. It generates a howdy-0.0.1.gem file containing your code. To make the gem available to other people, you can publish it to rubygems.org with the gem publish command.
+
+https://blog.appsignal.com/2018/10/23/the-innards-of-a-ruby-gem.html
+
+https://www.justinweiss.com/articles/how-does-rails-handle-gems/
